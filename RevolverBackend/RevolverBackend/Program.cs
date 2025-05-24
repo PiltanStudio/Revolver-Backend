@@ -1,9 +1,13 @@
+using RevolverBackend.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger
 builder.Services.AddSwaggerGen();            // Registers Swagger services
+builder.Services.AddSingleton<IPlayerService, PlayerService>();
+
 
 var app = builder.Build();
 
