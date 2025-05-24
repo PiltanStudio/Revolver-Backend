@@ -14,6 +14,23 @@ namespace RevolverBackend.Services
             _players.Add(player);
             return player;
         }
+        public Player Update(int id, Player updatedPlayer)
+        {
+            var player = _players.FirstOrDefault(p => p.Id == id);
+            if (player == null) return null;
+
+            player.Username = updatedPlayer.Username;
+            player.Score = updatedPlayer.Score;
+            return player;
+        }
+        public bool Delete(int id)
+        {
+            var player = _players.FirstOrDefault(p => p.Id == id);
+            if (player == null) return false;
+
+            _players.Remove(player);
+            return true;
+        }
     }
 
 }
