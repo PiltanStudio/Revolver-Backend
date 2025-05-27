@@ -1,9 +1,13 @@
+using FingerDuelBackend.Data;
+using Microsoft.EntityFrameworkCore;
 using RevolverBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger
 builder.Services.AddSwaggerGen();            // Registers Swagger services
 builder.Services.AddSingleton<IPlayerService, PlayerService>();
