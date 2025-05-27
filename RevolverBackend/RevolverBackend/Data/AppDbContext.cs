@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace FingerDuelBackend.Data
+namespace RevolverBackend.Data
 {
     public class AppDbContext : DbContext
     {

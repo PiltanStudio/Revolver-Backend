@@ -1,4 +1,4 @@
-using FingerDuelBackend.Data;
+using RevolverBackend.Data;
 using Microsoft.EntityFrameworkCore;
 using RevolverBackend.Services;
 
@@ -10,8 +10,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger
 builder.Services.AddSwaggerGen();            // Registers Swagger services
-builder.Services.AddSingleton<IPlayerService, PlayerService>();
-
+builder.Services.AddScoped<IPlayerService, PlayerService>();
 
 var app = builder.Build();
 
