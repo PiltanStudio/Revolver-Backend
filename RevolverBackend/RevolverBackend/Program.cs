@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
 using RevolverBackend.Data;
 using Microsoft.EntityFrameworkCore;
-=======
 using Microsoft.IdentityModel.Tokens;
->>>>>>> Stashed changes
 using RevolverBackend.Services;
 using System.Text;
 
@@ -11,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-<<<<<<< Updated upstream
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-=======
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
@@ -32,7 +29,6 @@ builder.Services.AddAuthentication("Bearer")
         };
     });
 
->>>>>>> Stashed changes
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger
 builder.Services.AddSwaggerGen();            // Registers Swagger services
 builder.Services.AddScoped<IPlayerService, PlayerService>();
