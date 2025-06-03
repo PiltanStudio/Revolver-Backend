@@ -30,15 +30,15 @@ namespace RevolverBackend.Controllers
             var result = _playerService.Add(player);
             return Ok(result);
         }
+
         [HttpPut("{id}")]
         public IActionResult Update(int id, Player updatedPlayer)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var updated = _playerService.Update(id, updatedPlayer);
+            if (updated == null)
+                return NotFound();
 
-            var result = _playerService.Update(id, updatedPlayer);
-            if (result == null) return NotFound();
-            return Ok(result);
+            return Ok(updated);
         }
 
         [HttpDelete("{id}")]
