@@ -12,5 +12,7 @@ namespace RevolverBackend.Data
         }
 
         public DbSet<Player> Players { get; set; }  // Create a table for Player
+        public DbSet<User> Users { get; set; }
+
     }
 }
