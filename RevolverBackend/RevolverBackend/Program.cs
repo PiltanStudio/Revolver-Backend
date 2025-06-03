@@ -32,6 +32,8 @@ builder.Services.AddAuthentication("Bearer")
 builder.Services.AddEndpointsApiExplorer();   // Required for Swagger
 builder.Services.AddSwaggerGen();            // Registers Swagger services
 builder.Services.AddScoped<IPlayerService, PlayerService>();
+builder.Services.AddScoped<IUserService, UserService>();
+
 
 var app = builder.Build();
 
